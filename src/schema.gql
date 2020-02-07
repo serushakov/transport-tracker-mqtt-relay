@@ -1,0 +1,37 @@
+type PositionRecord {
+  "Route infromation meant for human consumption"
+  routeNumber: String!
+  lat: Float
+  lon: Float
+  acceleration: Float!
+  "How much the transport is ahead or behind the timetable in seconds"
+  timetableOffset: Int!
+  route: String!
+
+  "How busy the bus is as an integer in range 0...100"
+  occupancy: Int
+
+  "Heading direction in degrees"
+  heading: Int!
+
+  "Mode of the transport, either **bus**, **tram**, **metro** or **train**"
+  mode: String!
+}
+
+type Subscription {
+  transportEventsInArea(
+    minLat: Float!
+    maxLat: Float!
+    minLon: Float!
+    maxLon: Float!
+  ): PositionRecord
+}
+
+type Query {
+  a: String
+}
+
+schema {
+  query: Query
+  subscription: Subscription
+}

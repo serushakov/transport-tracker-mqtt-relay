@@ -1,0 +1,24 @@
+{
+  "name": "transport-tracker-mqtt-relay",
+  "version": " ",
+  "main": "index.js",
+  "author": "Sergey Ushakov",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.10.0",
+    "async-mqtt": "^2.5.0",
+    "concurrently": "^5.1.0",
+    "graphql-import": "^1.0.0-beta.2",
+    "graphql-tools": "^4.0.6",
+    "mqtt": "^3.0.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "start": "tsc && concurrently \"tsc --watch\" \"nodemon dist/app.js -e gql\""
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "@types/mqtt": "^2.5.0",
+    "@types/node": "^13.7.0"
+  }
+}
