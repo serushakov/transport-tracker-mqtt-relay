@@ -1,8 +1,6 @@
 import mqtt, { AsyncMqttClient, Packet } from "async-mqtt";
 import pubsub from "./pubsub";
 
-let client: AsyncMqttClient;
-
 export interface SubscriptionProps {
   minLat: number;
   minLon: number;
@@ -57,13 +55,15 @@ const createPayload = (mode: TransportMode, data: PositionMQTTData) => ({
 export type SubscriptionPayload = ReturnType<typeof createPayload>;
 
 const setup = async () => {
-  await mqtt.connectAsync("mqtts://mqtt.hsl.fi:8883/");
+  const client = await mqtt.connectAsync("mqtts://mqtt.hsl.fi:8883/");
 
-  await subscribe();
+  console.log("Connected to MQTT broker");
+  await subscribe(client);
 };
 
-const subscribe = async () => {
+const subscribe = async (client: AsyncMqttClient) => {
   await client.subscribe(`/hfp/v2/journey/ongoing/vp/+/+/+/+/+/+/+/+/+/+/#`);
+  console.log("Subscribed to the topic");
 
   client.on("message", (topic, data) => {
     const mode = getTransportFromTopic(topic);

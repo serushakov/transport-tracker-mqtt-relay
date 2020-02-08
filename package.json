@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Sergey Ushakov",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "apollo-link": "^1.2.13",
     "apollo-server": "^2.10.0",
@@ -17,12 +20,15 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "tsc && concurrently \"tsc --watch\" \"nodemon dist/app.js -e gql\""
+    "build": "cross-env NODE_ENV=production tsc",
+    "start": "cross-env NODE_ENV=production node dist/app.js",
+    "dev": "tsc && concurrently \"tsc --watch\" \"nodemon dist/app.js -e gql\""
   },
   "devDependencies": {
     "@types/graphql": "^14.5.0",
     "@types/mqtt": "^2.5.0",
     "@types/node": "^13.7.0",
-    "@types/node-fetch": "^2.5.4"
+    "@types/node-fetch": "^2.5.4",
+    "cross-env": "^7.0.0"
   }
 }
