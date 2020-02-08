@@ -12,6 +12,7 @@
     "apollo-server": "^2.10.0",
     "async-mqtt": "^2.5.0",
     "concurrently": "^5.1.0",
+    "cross-env": "^7.0.0",
     "graphql": "^14.6.0",
     "graphql-import": "^1.0.0-beta.2",
     "graphql-tools": "^4.0.6",
@@ -28,7 +29,6 @@
     "@types/graphql": "^14.5.0",
     "@types/mqtt": "^2.5.0",
     "@types/node": "^13.7.0",
-    "@types/node-fetch": "^2.5.4",
-    "cross-env": "^7.0.0"
+    "@types/node-fetch": "^2.5.4"
   }
 }
