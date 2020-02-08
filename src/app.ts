@@ -9,7 +9,8 @@ Promise.all([getSchema(), setup()])
   .then(([schema]) => {
     const server = new ApolloServer({
       schema,
-      playground: true
+      playground: true,
+      introspection: true
     });
 
     return server.listen(port);
