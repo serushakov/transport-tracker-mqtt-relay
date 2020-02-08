@@ -3,7 +3,7 @@ import { setup } from "./mqtt";
 import { ApolloServer } from "apollo-server";
 
 Promise.all([getSchema(), setup()])
-  .then(([schema, ready]) => {
+  .then(([schema]) => {
     const server = new ApolloServer({
       schema
     });

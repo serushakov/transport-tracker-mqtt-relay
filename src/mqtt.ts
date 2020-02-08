@@ -57,15 +57,9 @@ const createPayload = (mode: TransportMode, data: PositionMQTTData) => ({
 export type SubscriptionPayload = ReturnType<typeof createPayload>;
 
 const setup = async () => {
-  try {
-    client = await mqtt.connectAsync("mqtts://mqtt.hsl.fi:8883/");
+  await mqtt.connectAsync("mqtts://mqtt.hsl.fi:8883/");
 
-    await subscribe();
-    return true;
-  } catch (e) {
-    console.error(e);
-    return false;
-  }
+  await subscribe();
 };
 
 const subscribe = async () => {

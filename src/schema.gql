@@ -18,6 +18,10 @@ type PositionRecord {
   mode: String!
 }
 
+type QueryType {
+  a: String
+}
+
 type Subscription {
   transportEventsInArea(
     minLat: Float!
