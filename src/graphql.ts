@@ -23,10 +23,10 @@ export const resolvers = {
   },
   Subscription: {
     transportEventsInArea: {
-      subscribe: withFilter(
-        () => pubsub.asyncIterator([`TRANSPORT_EVENT`]),
-        shouldSendEvent
-      )
+      subscribe: withFilter(() => {
+        console.log("Client subscribed");
+        return pubsub.asyncIterator([`TRANSPORT_EVENT`]);
+      }, shouldSendEvent)
     }
   }
 };

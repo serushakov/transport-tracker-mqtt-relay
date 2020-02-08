@@ -8,7 +8,8 @@ const port = development ? 4000 : process.env.PORT;
 Promise.all([getSchema(), setup()])
   .then(([schema]) => {
     const server = new ApolloServer({
-      schema
+      schema,
+      playground: true
     });
 
     return server.listen(port);
