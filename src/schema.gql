@@ -16,6 +16,9 @@ type PositionRecord {
 
   "Mode of the transport, either **bus**, **tram**, **metro** or **train**"
   mode: String!
+
+  "ID that uniquely identifies the vehicle"
+  id: String!
 }
 
 type QueryType {

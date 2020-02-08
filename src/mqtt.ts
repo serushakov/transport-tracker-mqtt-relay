@@ -48,6 +48,7 @@ const createPayload = (mode: TransportMode, data: PositionMQTTData) => ({
     route: data.route,
     occupancy: data.occu,
     heading: data.hdg,
+    id: `${data.oper}/${data.veh}`,
     mode
   }
 });
