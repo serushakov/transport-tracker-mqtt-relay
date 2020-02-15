@@ -5,17 +5,17 @@ import {
   introspectSchema,
   mergeSchemas
 } from "graphql-tools";
-import { SubscriptionProps, SubscriptionPayload } from "./mqtt";
-import { withFilter } from "apollo-server";
-import { ApolloLink } from "apollo-link";
-import pubsub from "./pubsub";
-import fetch from "node-fetch";
 import { HttpLink } from "apollo-link-http";
+import { withFilter } from "apollo-server";
+import fetch from "node-fetch";
+import { SubscriptionProps } from "./mqtt";
+import pubsub from "./pubsub";
+import { SubscriptionPayload } from "./dataProcessors";
 
 const shouldSendEvent = (
-  { transportEventsInArea: { lat, lon } }: SubscriptionPayload,
+  { transportEventsInArea: { lat, long, dir } }: SubscriptionPayload,
   { minLat, minLon, maxLat, maxLon }: SubscriptionProps
-) => lat >= minLat && lat <= maxLat && lon >= minLon && lon <= maxLon;
+) => lat >= minLat && lat <= maxLat && long >= minLon && long <= maxLon;
 
 export const resolvers = {
   Query: {

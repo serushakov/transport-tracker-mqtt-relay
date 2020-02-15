@@ -23,7 +23,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc",
     "start": "cross-env NODE_ENV=production node dist/app.js",
-    "dev": "tsc && concurrently \"tsc --watch\" \"nodemon dist/app.js -e gql\""
+    "dev": "tsc && concurrently \"tsc --watch\" \"nodemon dist/app.js -e gql,js\""
   },
   "devDependencies": {
     "@types/graphql": "^14.5.0",
