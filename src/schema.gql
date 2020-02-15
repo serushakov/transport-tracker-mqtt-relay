@@ -27,7 +27,7 @@ type PositionRecord {
   "WGS 84 latitude in degrees. null if location is unavailable."
   lat: Float
   "WGS 84 longitude in degrees. null if location is unavailable."
-  long: Float
+  lon: Float
   "Acceleration (m/s^2), calculated from the speed on this and the previous message. Negative values indicate that the speed of the vehicle is decreasing."
   acc: Float!
   "Offset from the scheduled timetable in seconds (s). Negative values indicate lagging behind the schedule, positive values running ahead of schedule."

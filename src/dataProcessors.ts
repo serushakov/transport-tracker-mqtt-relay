@@ -56,6 +56,7 @@ const createPayload = (topic: string, data: PositionMQTTData) => ({
   transportEventsInArea: {
     id: `${data.oper}/${data.veh}`,
     ...getPayloadFromTopic(topic),
+    lon: data.long,
     ...data
   }
 });
