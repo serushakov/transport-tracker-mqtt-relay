@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "apollo-link": "^1.2.13",
-    "apollo-server": "^2.14.2",
+    "apollo-server": "^2.25.3",
     "async-mqtt": "^2.5.0",
     "concurrently": "^5.1.0",
     "cross-env": "^7.0.0",
